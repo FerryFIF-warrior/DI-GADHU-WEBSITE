@@ -1,3 +1,4 @@
+/*Scrool animasi ringan*/
 const fadeSections = document.querySelectorAll(".fade-section");
 
 function reveal() {
@@ -12,6 +13,22 @@ function reveal() {
     });
 }
 
+/*workflow*/
+const steps = document.querySelectorAll(".section-step");
+
+function revealSteps(){
+    const track = window.innerHeight * 0.8;
+    steps.forEach(step => {
+        const stepTop = step.getBoundingClientRect().top;
+
+        if(stepTop < track) {
+            step.classList.add("show")
+        }
+    });
+}
+window.addEventListener("scroll", revealSteps);
+window.addEventListener("load", revealSteps);
+
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
     const windowHeight = window.innerHeight;
@@ -24,6 +41,7 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
