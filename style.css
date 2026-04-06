@@ -364,3 +364,71 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+/* ========== USER MENU DROPDOWN ========== */
+.user-menu {
+    position: relative;
+}
+
+.user-menu .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.user-menu .user-profile i {
+    font-size: 24px;
+}
+
+.user-menu .user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1001;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.user-menu:hover > .user-dropdown {
+    display: block;
+}
+
+.user-menu .user-dropdown li {
+    border-bottom: 1px solid #eee;
+}
+
+.user-menu .user-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.user-menu .user-dropdown li a,
+.user-menu .user-dropdown li span.dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: #8ccf9b;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.user-menu .user-dropdown li a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-menu .user-dropdown li span.dropdown-item {
+    cursor: default;
+    background-color: #f9f9f9;
+}
+
+.user-menu .user-dropdown li span.dropdown-item i {
+    margin-right: 8px;
+    width: 20px;
+}
