@@ -109,3 +109,49 @@ function analisisCuaca() {
 
      hasil.innerHTML = output;
 }
+
+/* Login System */
+const validEmail = "admin@example.com";
+const validPassword = "password123";
+
+window.addEventListener('DOMContentLoaded', () => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'True') {
+        window.location.href = "index.HTML";
+    }
+});
+
+document.getElementById('loginform').addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const remember = document.getElementById('remember').checked;
+    const messageDiv = document.getElementById('LoginMessage');
+
+    if (email === "" || password === "") {
+        messageDiv.innerHTML = '<span class="text-red-600">Email dan Password harus diisi</span>';
+        return;
+    }
+
+    if (email === validEmail && password === validPassword) {
+
+        messageDiv.innerHTML = '<span class="text-green-600">Login berhasil! Mengarahkan...</span>';
+
+        if (remember) {
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+        } else {
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('userEmail', email);
+        }
+
+        setTimeout(() => {
+            window.location.href = "index.HTML";
+        }, 1000);
+    } else {
+
+        messageDiv.innerHTML = '<span class="text-red-600">Enal Atau password salah!</span>';
+    }
+});
